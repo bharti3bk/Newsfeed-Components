@@ -97,7 +97,7 @@ const data = [
     {three separate paragraph elements}
 
     <span class='expandButton'></span>
-  </div>
+  </div>  
 
   Hint: You will need to use createElement more than once here!
 
@@ -112,3 +112,53 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+
+const articlesDiv = document.querySelector('.articles');
+console.log(articlesDiv); 
+
+data.forEach(element => {
+  console.log('My content' , element.date , element.title)
+  articlesDiv.appendChild(createArticleComponent(element.title , element.date , element.firstParagraph , element.secondParagraph , element.thirdParagraph));
+})
+
+
+function createArticleComponent(title , date , firstParagraph , secondParagraph , thirdParagraph){
+
+  const intialDiv = document.createElement('div');
+  const headingtitle = document.createElement('h2');
+  const dates = document.createElement('p');
+  const paragraphOne = document.createElement('p');
+  const paragraphTwo = document.createElement('p');
+  const paragraphThree = document.createElement('p');
+  const expand = document.createElement('span');
+ 
+
+  intialDiv.appendChild( headingtitle);
+  intialDiv.appendChild(dates);
+  intialDiv.appendChild(paragraphOne);
+  intialDiv.appendChild(paragraphTwo);
+  intialDiv.appendChild(paragraphThree); 
+  intialDiv.appendChild(expand);
+
+
+  intialDiv.classList.add('articles');
+  intialDiv.classList.add('article');
+  dates.classList.add('date');
+  expand.classList.add('expandButton');
+  
+
+  headingtitle.textContent = title;
+  dates.textContent = date;
+  paragraphOne.textContent = firstParagraph;
+  paragraphTwo.textContent = secondParagraph;
+  paragraphThree.textContent = thirdParagraph; 
+  expand.textContent = 'Expand';
+
+  expand.addEventListener('click' , event => {
+    console.log('button clicked', event.target)
+    intialDiv.classList.toggle('article-open');
+  })
+   
+  return intialDiv;
+
+}
