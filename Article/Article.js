@@ -116,14 +116,20 @@ const data = [
 const articlesDiv = document.querySelector('.articles');
 console.log(articlesDiv); 
 
+// Itreating Over Array named data.
+
 data.forEach(element => {
   console.log('My content' , element.date , element.title)
+
+// Calling CreateArticleComponent .
+  
   articlesDiv.appendChild(createArticleComponent(element.title , element.date , element.firstParagraph , element.secondParagraph , element.thirdParagraph));
 })
 
 
 function createArticleComponent(title , date , firstParagraph , secondParagraph , thirdParagraph){
-
+ 
+  // Created Elements Acc Structure
   const intialDiv = document.createElement('div');
   const headingtitle = document.createElement('h2');
   const dates = document.createElement('p');
@@ -132,6 +138,7 @@ function createArticleComponent(title , date , firstParagraph , secondParagraph 
   const paragraphThree = document.createElement('p');
   const expand = document.createElement('span');
  
+// Adding Elements to the Structure
 
   intialDiv.appendChild( headingtitle);
   intialDiv.appendChild(dates);
@@ -140,12 +147,13 @@ function createArticleComponent(title , date , firstParagraph , secondParagraph 
   intialDiv.appendChild(paragraphThree); 
   intialDiv.appendChild(expand);
 
+// Adding Classes to created Elements 
 
-  intialDiv.classList.add('articles');
-  intialDiv.classList.add('article');
+  intialDiv.classList.add('articles' , 'article');
   dates.classList.add('date');
   expand.classList.add('expandButton');
   
+// Adding texts to created Elements 
 
   headingtitle.textContent = title;
   dates.textContent = date;
@@ -154,11 +162,14 @@ function createArticleComponent(title , date , firstParagraph , secondParagraph 
   paragraphThree.textContent = thirdParagraph; 
   expand.textContent = 'Expand';
 
+// Adding event listner to expand button
+
   expand.addEventListener('click' , event => {
     console.log('button clicked', event.target)
     intialDiv.classList.toggle('article-open');
   })
-   
+  
+  // Returing Created Component
   return intialDiv;
 
 }
