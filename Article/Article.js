@@ -121,15 +121,17 @@ console.log(articlesDiv);
 data.forEach(element => {
   console.log('My content' , element.date , element.title)
 
-// Calling CreateArticleComponent .
-  
+// Calling CreateArticleComponent. 
+// EveryTime we call this method it sets the creted elements text.
+
   articlesDiv.appendChild(createArticleComponent(element.title , element.date , element.firstParagraph , element.secondParagraph , element.thirdParagraph));
 })
 
+// created createArticleComponent function 
 
 function createArticleComponent(title , date , firstParagraph , secondParagraph , thirdParagraph){
- 
-  // Created Elements Acc Structure
+  
+  // Created Elements Structure
   const intialDiv = document.createElement('div');
   const headingtitle = document.createElement('h2');
   const dates = document.createElement('p');
