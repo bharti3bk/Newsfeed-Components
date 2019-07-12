@@ -127,10 +127,9 @@ data.forEach(element => {
   articlesDiv.appendChild(createArticleComponent(element.title , element.date , element.firstParagraph , element.secondParagraph , element.thirdParagraph));
 })
 
-// created createArticleComponent function 
-
+// created createArticleComponent function
 function createArticleComponent(title , date , firstParagraph , secondParagraph , thirdParagraph){
-  
+ 
   // Created Elements Structure
   const intialDiv = document.createElement('div');
   const headingtitle = document.createElement('h2');
